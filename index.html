@@ -13,21 +13,6 @@
   --dark:#0d1008;
   --forest:#1a2310;
   --moss:#2a3418;
-  --pine:#3d4f25;<!DOCTYPE html>
-<html lang="fi">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Ounasmosku – Hirsitalo Ounasjoen rannalla</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --dark:#0d1008;
-  --forest:#1a2310;
-  --moss:#2a3418;
   --pine:#3d4f25;
   --bark:#6b5c3e;
   --amber:#c8922a;
@@ -39,14 +24,14 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--dark);color:var(--cream);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
-
+ 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(13,16,8,.9),transparent)}
 .nav-logo{font-family:var(--serif);font-size:1.3rem;letter-spacing:.08em;color:var(--cream);text-decoration:none}
 .lang-btns{display:flex;gap:.4rem}
 .lang-btn{background:transparent;border:1px solid rgba(200,180,140,.3);color:var(--muted);padding:.3rem .7rem;border-radius:2px;cursor:pointer;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
 .lang-btn.active,.lang-btn:hover{border-color:var(--amber);color:var(--amber)}
-
+ 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;padding:0 2rem 5rem}
 .hero-img{position:absolute;inset:0;overflow:hidden}
@@ -58,13 +43,13 @@ h1{font-family:var(--serif);font-size:clamp(3.5rem,9vw,7rem);font-weight:400;lin
 .hero-tagline{font-size:1.1rem;font-weight:300;color:rgba(240,232,213,.7);max-width:480px;line-height:1.6;margin-bottom:2rem}
 .hero-cta{display:inline-block;padding:.85rem 2rem;border:1px solid var(--amber);color:var(--amber);text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;transition:all .25s}
 .hero-cta:hover{background:var(--amber);color:var(--dark)}
-
+ 
 /* SECTIONS */
 section{padding:5rem 2rem}
 .container{max-width:1000px;margin:0 auto}
 .section-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem}
 h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
-
+ 
 /* INTRO */
 .intro{background:var(--forest)}
 .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
@@ -76,7 +61,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 .stat{border-top:1px solid rgba(200,180,140,.15);padding-top:1rem}
 .stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--amber-light);line-height:1}
 .stat-label{font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-top:.3rem}
-
+ 
 /* FEATURES */
 .features{background:var(--moss)}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem}
@@ -85,7 +70,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 .feature-icon{font-size:1.6rem;margin-bottom:1rem}
 .feature-title{font-size:.9rem;font-weight:500;color:var(--cream);margin-bottom:.4rem}
 .feature-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
-
+ 
 /* ACTIVITIES */
 .activities{background:var(--forest)}
 .act-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:3rem}
@@ -96,34 +81,33 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 .act-icon{font-size:1.5rem;margin-bottom:.5rem}
 .act-title{font-family:var(--serif);font-size:1.4rem;color:var(--cream)}
 .act-desc{font-size:.78rem;color:rgba(240,232,213,.65);margin-top:.3rem}
-
+ 
 /* GALLERY */
 .gallery{background:var(--moss)}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:4px;margin-top:3rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem}
 .gallery-item{position:relative;overflow:hidden;background:var(--pine);aspect-ratio:4/3}
 .gallery-item img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .3s}
 .gallery-item:hover img{opacity:.9}
 .gallery-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(200,180,140,.2);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
-
+ 
 /* CTA */
 .cta-section{background:var(--bark);text-align:center;padding:6rem 2rem}
 .cta-section h2{color:var(--cream)}
 .cta-section p{color:rgba(240,232,213,.7);max-width:500px;margin:0 auto 2.5rem;font-weight:300}
 .cta-email{display:inline-block;padding:1rem 2.5rem;background:var(--amber);color:var(--dark);text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;transition:background .2s}
 .cta-email:hover{background:var(--amber-light)}
-
+ 
 /* FOOTER */
 footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1px solid rgba(200,180,140,.08)}
 .footer-logo{font-family:var(--serif);font-size:1.6rem;color:var(--cream);margin-bottom:.5rem}
 .footer-sub{font-size:.75rem;color:var(--muted);letter-spacing:.12em}
 .footer-email{display:block;margin-top:.8rem;font-size:.8rem;color:var(--amber);text-decoration:none}
 .footer-email:hover{color:var(--amber-light)}
-
+ 
 /* RESPONSIVE */
 @media(max-width:700px){
   .intro-grid{grid-template-columns:1fr;gap:2.5rem}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-item:first-child{grid-column:span 2}
   .act-grid{grid-template-columns:1fr 1fr}
   nav{padding:1rem 1.2rem}
 }
@@ -135,7 +119,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <a class="nav-logo" href="#">Ounasmosku</a>
   <div class="lang-btns">
@@ -143,7 +127,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
   </div>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img">
@@ -157,7 +141,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     <a class="hero-cta" href="#contact" data-fi="Kysy vapaita päiviä" data-en="Check availability">Kysy vapaita päiviä</a>
   </div>
 </section>
-
+ 
 <!-- INTRO -->
 <section class="intro">
   <div class="container intro-grid">
@@ -185,7 +169,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     </div>
   </div>
 </section>
-
+ 
 <!-- FEATURES -->
 <section class="features">
   <div class="container">
@@ -201,7 +185,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     </div>
   </div>
 </section>
-
+ 
 <!-- ACTIVITIES -->
 <section class="activities">
   <div class="container">
@@ -243,49 +227,46 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     </div>
   </div>
 </section>
-
+ 
 <!-- GALLERY -->
 <section class="gallery">
   <div class="container">
     <p class="section-label" data-fi="Galleria" data-en="Gallery">Galleria</p>
     <h2 data-fi="Katso kohde" data-en="See the property">Katso kohde</h2>
-  </div>
-  <div class="container" style="margin-top:0;max-width:1000px">
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="img/gallery1.jpeg" alt="Ulkokuva" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 1 — Ulkokuva</div>'"/></div>
-      <div class="gallery-item"><img src="img/gallery2.jpeg" alt="Joki" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 2 — Joki</div>'"/></div>
-      <div class="gallery-item"><img src="img/gallery3.jpeg" alt="Sisätila" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 3 — Sisätila</div>'"/></div>
-      <div class="gallery-item"><img src="img/gallery4.jpeg" alt="Sauna" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 4 — Sauna</div>'"/></div>
-      <div class="gallery-item"><img src="img/gallery5.jpeg" alt="Piha" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 5 — Piha</div>'"/></div>
-      <div class="gallery-item" id="g6"><img src="img/gallery6.jpeg" alt="Talvi" onerror="this.closest('#g6').style.display='none'"/></div>
+      <div class="gallery-item"><img src="img/gallery1.jpeg" alt="Ulkokuva" onerror="this.closest('.gallery-item').style.display='none'"/></div>
+      <div class="gallery-item"><img src="img/gallery2.jpeg" alt="Joki" onerror="this.closest('.gallery-item').style.display='none'"/></div>
+      <div class="gallery-item"><img src="img/gallery3.jpeg" alt="Sisätila" onerror="this.closest('.gallery-item').style.display='none'"/></div>
+      <div class="gallery-item"><img src="img/gallery4.jpeg" alt="Sauna" onerror="this.closest('.gallery-item').style.display='none'"/></div>
+      <div class="gallery-item"><img src="img/gallery5.jpeg" alt="Piha" onerror="this.closest('.gallery-item').style.display='none'"/></div>
+      <div class="gallery-item"><img src="img/gallery6.jpeg" alt="Talvi" onerror="this.closest('.gallery-item').style.display='none'"/></div>
     </div>
   </div>
 </section>
-
+ 
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="container">
     <p class="section-label" data-fi="Varaus" data-en="Booking">Varaus</p>
-    <h2 data-fi="Kysy vapaita päiviä ja hintoja" data-en="Ask about availability and prices">Kysy vapaita päiviä ja hintoja</h2>
+    <h2 data-fi="Kysy vapaista päivistä ja hinnoista" data-en="Ask about availability and prices">Kysy vapaista päivistä ja hinnoista</h2>
     <p data-fi="Ounasmosku ei ole varattavissa nettiportaalin kautta — ota yhteyttä suoraan, niin sovitaan sopiva ajankohta." data-en="Ounasmosku is not bookable through an online portal — contact us directly and we'll find a suitable time.">Ounasmosku ei ole varattavissa nettiportaalin kautta — ota yhteyttä suoraan, niin sovitaan sopiva ajankohta.</p>
     <a class="cta-email" href="mailto:levinkuningaskotka@gmail.com">levinkuningaskotka@gmail.com</a>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Ounasmosku</div>
   <div class="footer-sub" data-fi="Tepasto · Kittilä · Lappi · Suomi" data-en="Tepasto · Kittilä · Lapland · Finland">Tepasto · Kittilä · Lappi · Suomi</div>
   <a class="footer-email" href="mailto:levinkuningaskotka@gmail.com">levinkuningaskotka@gmail.com</a>
 </footer>
-
+ 
 <script>
-const t={
-  'btn-fi':'FI','btn-en':'EN',
-};
 function setLang(lang){
   document.querySelectorAll('[data-fi]').forEach(el=>{
-    el.textContent=el.dataset[lang]||el.textContent;
+    if(!el.id||!el.id.startsWith('intro')){
+      el.textContent=el.dataset[lang]||el.textContent;
+    }
   });
   document.getElementById('intro-fi').classList.toggle('active',lang==='fi');
   document.getElementById('intro-en').classList.toggle('active',lang==='en');
@@ -293,21 +274,6 @@ function setLang(lang){
     b.classList.toggle('active',b.id==='btn-'+lang);
   });
 }
-
-document.querySelectorAll('[data-fi]').forEach(el=>{
-  if(!el.id||(!el.id.startsWith('intro'))){
-    const orig=el.dataset.fi;
-    el.dataset.fi=orig;
-  }
-});
-
-document.querySelectorAll('.gallery-item').forEach(item=>{
-  if(!item.querySelector('img')||item.querySelector('img').style.display==='none'){
-    const labels=['Ulkokuva','Ounasjoki','Tupakeittiö','Sauna','Piha & grillikatos','Talvimaisema'];
-    const idx=[...document.querySelectorAll('.gallery-item')].indexOf(item);
-    item.innerHTML=`<div class="gallery-placeholder">${labels[idx]||'Kuva '+(idx+1)}</div>`;
-  }
-});
 </script>
 </body>
 </html>
