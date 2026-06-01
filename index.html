@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ounasmosku – Hirsitalo Ounasjoen rannalla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#0d1008;
+  --forest:#1a2310;
+  --moss:#2a3418;
+  --pine:#3d4f25;
+  --bark:#6b5c3e;
+  --amber:#c8922a;
+  --amber-light:#e8b84b;
+  --cream:#f0e8d5;
+  --muted:#8a7e6a;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--cream);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(13,16,8,.9),transparent)}
+.nav-logo{font-family:var(--serif);font-size:1.3rem;letter-spacing:.08em;color:var(--cream);text-decoration:none}
+.lang-btns{display:flex;gap:.4rem}
+.lang-btn{background:transparent;border:1px solid rgba(200,180,140,.3);color:var(--muted);padding:.3rem .7rem;border-radius:2px;cursor:pointer;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s}
+.lang-btn.active,.lang-btn:hover{border-color:var(--amber);color:var(--amber)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;padding:0 2rem 5rem}
+.hero-img{position:absolute;inset:0;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.55;filter:saturate(.85)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,13,6,.92) 0%,rgba(10,13,6,.3) 50%,rgba(10,13,6,.5) 100%)}
+.hero-content{position:relative;max-width:780px}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem}
+h1{font-family:var(--serif);font-size:clamp(3.5rem,9vw,7rem);font-weight:400;line-height:1;letter-spacing:.02em;color:var(--cream);margin-bottom:1.2rem}
+.hero-tagline{font-size:1.1rem;font-weight:300;color:rgba(240,232,213,.7);max-width:480px;line-height:1.6;margin-bottom:2rem}
+.hero-cta{display:inline-block;padding:.85rem 2rem;border:1px solid var(--amber);color:var(--amber);text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;transition:all .25s}
+.hero-cta:hover{background:var(--amber);color:var(--dark)}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.container{max-width:1000px;margin:0 auto}
+.section-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem}
+h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
+
+/* INTRO */
+.intro{background:var(--forest)}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.intro-text p{color:rgba(240,232,213,.75);font-weight:300;font-size:1.05rem;margin-bottom:1rem}
+.intro-text .lang-block{display:none}
+.intro-text .lang-block.active{display:block}
+.intro-divider{width:40px;height:1px;background:var(--amber);margin-bottom:2rem}
+.intro-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat{border-top:1px solid rgba(200,180,140,.15);padding-top:1rem}
+.stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--amber-light);line-height:1}
+.stat-label{font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-top:.3rem}
+
+/* FEATURES */
+.features{background:var(--moss)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem}
+.feature{padding:1.5rem;border:1px solid rgba(200,180,140,.08);transition:border-color .2s}
+.feature:hover{border-color:rgba(200,146,42,.3)}
+.feature-icon{font-size:1.6rem;margin-bottom:1rem}
+.feature-title{font-size:.9rem;font-weight:500;color:var(--cream);margin-bottom:.4rem}
+.feature-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+/* ACTIVITIES */
+.activities{background:var(--forest)}
+.act-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:3rem}
+.act-item{position:relative;aspect-ratio:1/1.1;overflow:hidden;cursor:default}
+.act-item img{width:100%;height:100%;object-fit:cover;opacity:.4;transition:opacity .4s;filter:saturate(.7)}
+.act-item:hover img{opacity:.6}
+.act-item-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;background:linear-gradient(to top,rgba(10,13,6,.8),transparent)}
+.act-icon{font-size:1.5rem;margin-bottom:.5rem}
+.act-title{font-family:var(--serif);font-size:1.4rem;color:var(--cream)}
+.act-desc{font-size:.78rem;color:rgba(240,232,213,.65);margin-top:.3rem}
+
+/* GALLERY */
+.gallery{background:var(--moss)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:4px;margin-top:3rem}
+.gallery-item{position:relative;overflow:hidden;background:var(--pine);aspect-ratio:4/3}
+.gallery-item:first-child{grid-column:span 2;aspect-ratio:16/9}
+.gallery-item img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .3s}
+.gallery-item:hover img{opacity:.9}
+.gallery-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(200,180,140,.2);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
+
+/* CTA */
+.cta-section{background:var(--bark);text-align:center;padding:6rem 2rem}
+.cta-section h2{color:var(--cream)}
+.cta-section p{color:rgba(240,232,213,.7);max-width:500px;margin:0 auto 2.5rem;font-weight:300}
+.cta-email{display:inline-block;padding:1rem 2.5rem;background:var(--amber);color:var(--dark);text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;transition:background .2s}
+.cta-email:hover{background:var(--amber-light)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1px solid rgba(200,180,140,.08)}
+.footer-logo{font-family:var(--serif);font-size:1.6rem;color:var(--cream);margin-bottom:.5rem}
+.footer-sub{font-size:.75rem;color:var(--muted);letter-spacing:.12em}
+.footer-email{display:block;margin-top:.8rem;font-size:.8rem;color:var(--amber);text-decoration:none}
+.footer-email:hover{color:var(--amber-light)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .intro-grid{grid-template-columns:1fr;gap:2.5rem}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item:first-child{grid-column:span 2}
+  .act-grid{grid-template-columns:1fr 1fr}
+  nav{padding:1rem 1.2rem}
+}
+@media(max-width:480px){
+  .act-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  h1{font-size:3rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Ounasmosku</a>
+  <div class="lang-btns">
+    <button class="lang-btn active" onclick="setLang('fi')" id="btn-fi">FI</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="img/hero.jpg" alt="Ounasmosku – hirsitalo Ounasjoen rannalla" onerror="this.style.display='none'"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-fi="Tepasto · Kittilä · Lappi" data-en="Tepasto · Kittilä · Lapland">Tepasto · Kittilä · Lappi</p>
+    <h1>Ounas&shy;mosku</h1>
+    <p class="hero-tagline" data-fi="1920-luvun hirsitalo kosken äärellä — lohi, erämaa ja Lapin hiljaisuus." data-en="A 1920s log house by the rapids — salmon, wilderness and Lapland silence.">1920-luvun hirsitalo kosken äärellä — lohi, erämaa ja Lapin hiljaisuus.</p>
+    <a class="hero-cta" href="#contact" data-fi="Kysy vapaita päiviä" data-en="Check availability">Kysy vapaita päiviä</a>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container intro-grid">
+    <div class="intro-text">
+      <p class="section-label" data-fi="Kohde" data-en="About">Kohde</p>
+      <div class="intro-divider"></div>
+      <div class="lang-block active" id="intro-fi">
+        <h2>Aito Lapin koti, ei hotelli</h2>
+        <p>Ounasmosku on vuosisata sitten rakennettu hirsitalo Ounasjoen varrella, Tepaston kylässä. Koskivesi kuuluu makuuhuoneeseen, metsä ulottuu ovelle asti.</p>
+        <p>Kohde sopii lohikalastukseen, metsästykseen, hiihtoretkiin sekä yksinkertaiseen rentoutumiseen — kaukana kiireestä, lähellä kaikkea oleellista.</p>
+      </div>
+      <div class="lang-block" id="intro-en">
+        <h2>An authentic Lapland home, not a hotel</h2>
+        <p>Ounasmosku is a century-old log house on the banks of the Ounasjoki river, in the village of Tepasto. The sound of rapids carries into the bedroom, and the forest reaches right to the door.</p>
+        <p>Perfect for salmon fishing, hunting, ski touring or simply slowing down — far from the rush, close to everything that matters.</p>
+      </div>
+    </div>
+    <div class="intro-stats">
+      <div class="stat"><div class="stat-num">177 m²</div><div class="stat-label" data-fi="Asuinpinta-ala" data-en="Living area">Asuinpinta-ala</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label" data-fi="Nukkumapaikkaa" data-en="Sleeping places">Nukkumapaikkaa</div></div>
+      <div class="stat"><div class="stat-num">20 m</div><div class="stat-label" data-fi="Ounasjokeen" data-en="To the river">Ounasjokeen</div></div>
+      <div class="stat"><div class="stat-num">28 km</div><div class="stat-label" data-fi="Levin hiihtokeskus" data-en="Levi ski resort">Levin hiihtokeskus</div></div>
+      <div class="stat"><div class="stat-num">~500 ha</div><div class="stat-label" data-fi="Metsästysmaita" data-en="Hunting grounds">Metsästysmaita</div></div>
+      <div class="stat"><div class="stat-num">1920</div><div class="stat-label" data-fi="Rakennettu" data-en="Built">Rakennettu</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <p class="section-label" data-fi="Varustelu" data-en="Amenities">Varustelu</p>
+    <h2 data-fi="Kaikki mitä tarvitset" data-en="Everything you need">Kaikki mitä tarvitset</h2>
+    <div class="features-grid">
+      <div class="feature"><div class="feature-icon">🪵</div><div class="feature-title" data-fi="Hirsirunko, 1920-luku" data-en="Log structure, 1920s">Hirsirunko, 1920-luku</div><div class="feature-desc" data-fi="Aito vanha hirsi, tunnelmallinen sisätila" data-en="Authentic old log, atmospheric interior">Aito vanha hirsi, tunnelmallinen sisätila</div></div>
+      <div class="feature"><div class="feature-icon">🛏️</div><div class="feature-title" data-fi="3 makuuhuonetta" data-en="3 bedrooms">3 makuuhuonetta</div><div class="feature-desc" data-fi="6 nukkumapaikkaa, tilava tupakeittiö" data-en="6 sleeping places, spacious kitchen-living room">6 nukkumapaikkaa, tilava tupakeittiö</div></div>
+      <div class="feature"><div class="feature-icon">🧖</div><div class="feature-title" data-fi="Sauna & pesuhuone" data-en="Sauna & bathroom">Sauna & pesuhuone</div><div class="feature-desc" data-fi="2 WC, rantasauna mahdollisesti" data-en="2 toilets, lakeside sauna possible">2 WC, rantasauna mahdollisesti</div></div>
+      <div class="feature"><div class="feature-icon">🌡️</div><div class="feature-title" data-fi="Ilmalämpöpumppu" data-en="Heat pump">Ilmalämpöpumppu</div><div class="feature-desc" data-fi="Mukava ympäri vuoden" data-en="Comfortable year-round">Mukava ympäri vuoden</div></div>
+      <div class="feature"><div class="feature-icon">🔥</div><div class="feature-title" data-fi="Grillikatos" data-en="Covered grill area">Grillikatos</div><div class="feature-desc" data-fi="Piha ja grillauspaikka joen äärellä" data-en="Yard and grilling spot by the river">Piha ja grillauspaikka joen äärellä</div></div>
+      <div class="feature"><div class="feature-icon">🏔️</div><div class="feature-title" data-fi="Kansallispuisto lähellä" data-en="National park nearby">Kansallispuisto lähellä</div><div class="feature-desc" data-fi="Pallas-Yllästunturi käden ulottuvilla" data-en="Pallas-Yllästunturi within reach">Pallas-Yllästunturi käden ulottuvilla</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="activities">
+  <div class="container">
+    <p class="section-label" data-fi="Aktiviteetit" data-en="Activities">Aktiviteetit</p>
+    <h2 data-fi="Erämaan ytimessä" data-en="At the heart of the wilderness">Erämaan ytimessä</h2>
+  </div>
+  <div class="act-grid">
+    <div class="act-item">
+      <img src="img/fishing.jpg" alt="" onerror="this.style.display='none'"/>
+      <div class="act-item-overlay">
+        <div class="act-icon">🎣</div>
+        <div class="act-title" data-fi="Koskikalastus" data-en="Rapid fishing">Koskikalastus</div>
+        <div class="act-desc" data-fi="Lohi ja taimen Ounasjoen koskessa — 20 m ovelta" data-en="Salmon & trout in the Ounasjoki rapids — 20 m from the door">Lohi ja taimen — 20 m ovelta</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <img src="img/hunting.jpg" alt="" onerror="this.style.display='none'"/>
+      <div class="act-item-overlay">
+        <div class="act-icon">🦌</div>
+        <div class="act-title" data-fi="Metsästys" data-en="Hunting">Metsästys</div>
+        <div class="act-desc" data-fi="Hirvi, karhu, linnut — ~500 ha maat" data-en="Moose, bear, birds — ~500 ha grounds">Hirvi, karhu, linnut — ~500 ha</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <img src="img/skiing.jpg" alt="" onerror="this.style.display='none'"/>
+      <div class="act-item-overlay">
+        <div class="act-icon">⛷️</div>
+        <div class="act-title" data-fi="Hiihto & Levi" data-en="Skiing & Levi">Hiihto & Levi</div>
+        <div class="act-desc" data-fi="Levin hiihtokeskus 28 km" data-en="Levi ski resort 28 km away">28 km Levin hiihtokeskuksesta</div>
+      </div>
+    </div>
+    <div class="act-item">
+      <img src="img/nature.jpg" alt="" onerror="this.style.display='none'"/>
+      <div class="act-item-overlay">
+        <div class="act-icon">🌲</div>
+        <div class="act-title" data-fi="Luonto & vaellus" data-en="Nature & hiking">Luonto & vaellus</div>
+        <div class="act-desc" data-fi="Pallas-Yllästunturi kansallispuisto" data-en="Pallas-Yllästunturi national park">Pallas-Yllästunturi kansallispuisto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="container">
+    <p class="section-label" data-fi="Galleria" data-en="Gallery">Galleria</p>
+    <h2 data-fi="Katso kohde" data-en="See the property">Katso kohde</h2>
+  </div>
+  <div class="container" style="margin-top:0;max-width:1000px">
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="img/gallery1.jpg" alt="Ulkokuva" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 1 — Ulkokuva</div>'"/></div>
+      <div class="gallery-item"><img src="img/gallery2.jpg" alt="Joki" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 2 — Joki</div>'"/></div>
+      <div class="gallery-item"><img src="img/gallery3.jpg" alt="Sisätila" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 3 — Sisätila</div>'"/></div>
+      <div class="gallery-item"><img src="img/gallery4.jpg" alt="Sauna" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 4 — Sauna</div>'"/></div>
+      <div class="gallery-item"><img src="img/gallery5.jpg" alt="Piha" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 5 — Piha</div>'"/></div>
+      <div class="gallery-item"><img src="img/gallery6.jpg" alt="Talvi" onerror="this.parentElement.innerHTML='<div class=gallery-placeholder>Kuva 6 — Talvi</div>'"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <p class="section-label" data-fi="Varaus" data-en="Booking">Varaus</p>
+    <h2 data-fi="Kysy vapaita päiviä ja hintoja" data-en="Ask about availability and prices">Kysy vapaita päiviä ja hintoja</h2>
+    <p data-fi="Ounasmosku ei ole varattavissa nettiportaalin kautta — ota yhteyttä suoraan, niin sovitaan sopiva ajankohta." data-en="Ounasmosku is not bookable through an online portal — contact us directly and we'll find a suitable time.">Ounasmosku ei ole varattavissa nettiportaalin kautta — ota yhteyttä suoraan, niin sovitaan sopiva ajankohta.</p>
+    <a class="cta-email" href="mailto:levinkuningaskotka@gmail.com">levinkuningaskotka@gmail.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ounasmosku</div>
+  <div class="footer-sub" data-fi="Tepasto · Kittilä · Lappi · Suomi" data-en="Tepasto · Kittilä · Lapland · Finland">Tepasto · Kittilä · Lappi · Suomi</div>
+  <a class="footer-email" href="mailto:levinkuningaskotka@gmail.com">levinkuningaskotka@gmail.com</a>
+</footer>
+
+<script>
+const t={
+  'btn-fi':'FI','btn-en':'EN',
+};
+function setLang(lang){
+  document.querySelectorAll('[data-fi]').forEach(el=>{
+    el.textContent=el.dataset[lang]||el.textContent;
+  });
+  document.getElementById('intro-fi').classList.toggle('active',lang==='fi');
+  document.getElementById('intro-en').classList.toggle('active',lang==='en');
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active',b.id==='btn-'+lang);
+  });
+}
+
+document.querySelectorAll('[data-fi]').forEach(el=>{
+  if(!el.id||(!el.id.startsWith('intro'))){
+    const orig=el.dataset.fi;
+    el.dataset.fi=orig;
+  }
+});
+
+document.querySelectorAll('.gallery-item').forEach(item=>{
+  if(!item.querySelector('img')||item.querySelector('img').style.display==='none'){
+    const labels=['Ulkokuva','Ounasjoki','Tupakeittiö','Sauna','Piha & grillikatos','Talvimaisema'];
+    const idx=[...document.querySelectorAll('.gallery-item')].indexOf(item);
+    item.innerHTML=`<div class="gallery-placeholder">${labels[idx]||'Kuva '+(idx+1)}</div>`;
+  }
+});
+</script>
+</body>
+</html>
