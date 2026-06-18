@@ -85,7 +85,8 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 .act-row-desc{font-size:.85rem;color:rgba(240,232,213,.6);font-weight:300}
 
 /* HUNTING NOTE */
-.hunting-note{margin-top:2.5rem;padding:1.5rem 1.8rem;border:1px solid rgba(200,146,42,.25);background:rgba(200,146,42,.05);max-width:700px}
+.hunting-note{padding:1.5rem 1.8rem;border:1px solid rgba(200,146,42,.25);background:rgba(200,146,42,.05);flex:1;min-width:280px}
+.note-row{display:flex;gap:1.5rem;margin-top:2.5rem;flex-wrap:wrap}
 .hunting-note-title{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem;font-weight:500}
 .hunting-note p{font-size:.92rem;color:rgba(240,232,213,.75);font-weight:300;line-height:1.6}
 .hunting-note .lang-block{display:none}
@@ -195,7 +196,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
       <div class="stat"><div class="stat-num">6</div><div class="stat-label" data-fi="Nukkumapaikkaa" data-en="Sleeping places">Nukkumapaikkaa</div></div>
       <div class="stat"><div class="stat-num">20 m</div><div class="stat-label" data-fi="Ounasjokeen" data-en="To the river">Ounasjokeen</div></div>
       <div class="stat"><div class="stat-num">28 km</div><div class="stat-label" data-fi="Levin hiihtokeskus" data-en="Levi ski resort">Levin hiihtokeskus</div></div>
-      <div class="stat"><div class="stat-num">~500 ha</div><div class="stat-label" data-fi="Metsästysmaita" data-en="Hunting grounds">Metsästysmaita</div></div>
+      <div class="stat"><div class="stat-num">~1000 ha</div><div class="stat-label" data-fi="Metsästysmaita" data-en="Hunting grounds">Metsästysmaita</div></div>
       <div class="stat"><div class="stat-num">1920</div><div class="stat-label" data-fi="Rakennettu" data-en="Built">Rakennettu</div></div>
     </div>
   </div>
@@ -211,7 +212,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
       <div class="feature"><div class="feature-icon">🛏️</div><div class="feature-title" data-fi="3 makuuhuonetta" data-en="3 bedrooms">3 makuuhuonetta</div><div class="feature-desc" data-fi="6 nukkumapaikkaa, tilava tupakeittiö" data-en="6 sleeping places, spacious kitchen-living room">6 nukkumapaikkaa, tilava tupakeittiö</div></div>
       <div class="feature"><div class="feature-icon">🧖</div><div class="feature-title" data-fi="Sauna & pesuhuone" data-en="Sauna & bathroom">Sauna & pesuhuone</div><div class="feature-desc" data-fi="Kylpyhuone, sisäsauna" data-en="Toilet, indoor sauna">Kylpyhuone, sisäsauna</div></div>
       <div class="feature"><div class="feature-icon">🌡️</div><div class="feature-title" data-fi="Ilmalämpöpumppu" data-en="Heat pump">Ilmalämpöpumppu</div><div class="feature-desc" data-fi="Mukava ympäri vuoden" data-en="Comfortable year-round">Mukava ympäri vuoden</div></div>
-      <div class="feature"><div class="feature-icon">🔥</div><div class="feature-title" data-fi="Grillikatos" data-en="Covered grill area">Grillikatos</div><div class="feature-desc" data-fi="Piha ja grillauspaikka joen äärellä" data-en="Yard and grilling spot by the river">Piha ja grillauspaikka joen äärellä</div></div>
+      <div class="feature"><div class="feature-icon">🔥</div><div class="feature-title" data-fi="Laavu pihassa" data-en="Lean-to shelter in the yard">Laavu pihassa</div><div class="feature-desc" data-fi="Grillaa sateelta suojassa, 3–4 hengelle myös yöpyminen Ounasjokea kuunnellen" data-en="Grill rain-free, or sleep 3–4 by the Ounasjoki river sounds">Grillaa sateelta suojassa, 3–4 hengelle myös yöpyminen Ounasjokea kuunnellen</div></div>
       <div class="feature"><div class="feature-icon">🏔️</div><div class="feature-title" data-fi="Kansallispuisto lähellä" data-en="National park nearby">Kansallispuisto lähellä</div><div class="feature-desc" data-fi="Pallas-Yllästunturi käden ulottuvilla" data-en="Pallas-Yllästunturi within reach">Pallas-Yllästunturi käden ulottuvilla</div></div>
     </div>
   </div>
@@ -228,14 +229,14 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
       <div class="act-row-img"><img src="img/fishing.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon">🎣</span></div>
       <div class="act-row-text">
         <div class="act-row-title" data-fi="Koskikalastus" data-en="Rapid fishing">Koskikalastus</div>
-        <div class="act-row-desc" data-fi="Taimen ja lohi Ounasjoen koskessa — 20 m ovelta" data-en="Salmon & trout in the Ounasjoki rapids — 20 m from the door">Taimen ja lohi Ounasjoen koskessa — 20 m ovelta</div>
+        <div class="act-row-desc" data-fi="Taimen, lohi, hauki ja ahven Ounasjoessa — 20 m ovelta" data-en="Trout, salmon, pike and perch in the Ounasjoki river — 20 m from the door">Taimen, lohi, hauki ja ahven Ounasjoessa — 20 m ovelta</div>
       </div>
     </div>
     <div class="act-row">
       <div class="act-row-img"><img src="img/hunting.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon">🦌</span></div>
       <div class="act-row-text">
         <div class="act-row-title" data-fi="Metsästys" data-en="Hunting">Metsästys</div>
-        <div class="act-row-desc" data-fi="Hirvi, karhu, linnut — ~500 ha maat" data-en="Moose, bear, birds — ~500 ha grounds">Hirvi, karhu, linnut — ~500 ha maat</div>
+        <div class="act-row-desc" data-fi="Hirvi, karhu, linnut — ~1000 ha maat suoraan pihasta" data-en="Moose, bear, birds — ~1000 ha grounds right from the yard">Hirvi, karhu, linnut — ~1000 ha maat suoraan pihasta</div>
       </div>
     </div>
     <div class="act-row">
@@ -254,13 +255,24 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     </div>
   </div>
   <div class="container">
-    <div class="hunting-note">
-      <div class="hunting-note-title" data-fi="Metsästysoikeus lisämaksusta" data-en="Hunting rights for an additional fee">Metsästysoikeus lisämaksusta</div>
-      <div class="lang-block active" id="hunting-fi">
-        <p>Talon omistajan 500 hehtaarin mailla pienriistan metsästys on mahdollista lisämaksusta, mikä tekee tästä unelmakohteen myös metsästyksen harrastajille. Varaathan lisäpalvelun "Muut kulut" yhteydenotossa, mikäli haluat varata myös metsästysoikeuden. Lupa on kiinteähintainen, noin 150 € koko vierailun ajalle.</p>
+    <div class="note-row">
+      <div class="hunting-note">
+        <div class="hunting-note-title" data-fi="Metsästysoikeus lisämaksusta" data-en="Hunting rights for an additional fee">Metsästysoikeus lisämaksusta</div>
+        <div class="lang-block active" id="hunting-fi">
+          <p>Talon omistajan noin 1000 hehtaarin mailla pienriistan metsästys on mahdollista lisämaksusta, ja maille pääsee suoraan pihasta — tämä tekee kohteesta unelmapaikan myös metsästyksen harrastajille. Lisäksi paikallisen hirviseuran hirvenmetsästykseen on mahdollista osallistua omalla aseella. Varaathan lisäpalvelun "Muut kulut" yhteydenotossa, mikäli haluat varata metsästysoikeuden. Pienriistan metsästysmaksu on noin 200 € yhteensä kaikilta metsästäjiltä per vuokrausjakso.</p>
+        </div>
+        <div class="lang-block" id="hunting-en">
+          <p>Small-game hunting is available for an additional fee on the owner's roughly 1000-hectare grounds, with direct access right from the yard — making this a dream destination for hunting enthusiasts too. It's also possible to join the local moose hunting club's hunt with your own firearm. Please mention the hunting permit when you get in touch — the small-game hunting fee is approximately €200 total for all hunters per rental period.</p>
+        </div>
       </div>
-      <div class="lang-block" id="hunting-en">
-        <p>Small-game hunting is available for an additional fee on the owner's 500-hectare grounds, making this a dream destination for hunting enthusiasts too. Please mention the hunting permit when you get in touch — it's a fixed fee of approximately €150 for the whole stay.</p>
+      <div class="hunting-note">
+        <div class="hunting-note-title" data-fi="Laavu Ounasjoen rannalla" data-en="Lean-to shelter by the Ounasjoki river">Laavu Ounasjoen rannalla</div>
+        <div class="lang-block active" id="laavu-fi">
+          <p>Pihassa on laavu, jossa voit grillata sateelta suojassa. Laavussa on mahdollista yöpyä myös 3–4 henkilön voimin Ounasjokea katsellen ja kuunnellen — kokemus, jota et todennäköisesti löydä muualta.</p>
+        </div>
+        <div class="lang-block" id="laavu-en">
+          <p>The yard has a lean-to shelter where you can grill rain-free. It's also possible to sleep there with 3–4 people, watching and listening to the Ounasjoki river — an experience you're unlikely to find anywhere else.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -300,7 +312,8 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
         <div class="pricing-card-title" data-fi="Maksulliset lisäpalvelut" data-en="Optional paid extras">Maksulliset lisäpalvelut</div>
         <ul class="pricing-list">
           <li><span data-fi="Liinavaatteet" data-en="Bed linen">Liinavaatteet</span><span class="item-price">26 € / <span data-fi="henkilö" data-en="person">henkilö</span></span></li>
-          <li><span data-fi="Pienriistan metsästysoikeus" data-en="Small-game hunting permit">Pienriistan metsästysoikeus</span><span class="item-price">~150 € / <span data-fi="vierailu" data-en="stay">vierailu</span></span></li>
+          <li><span data-fi="Pienriistan metsästysoikeus" data-en="Small-game hunting permit">Pienriistan metsästysoikeus</span><span class="item-price">~200 € / <span data-fi="vuokraus, kaikki metsästäjät" data-en="rental, all hunters">vuokraus</span></span></li>
+          <li><span data-fi="Veneen vuokraus paikalliselta kalastajalta" data-en="Boat rental from a local fisherman">Veneen vuokraus paikalliselta kalastajalta</span><span class="item-price">50 € / <span data-fi="vrk" data-en="day">vrk</span></span></li>
         </ul>
         <p class="pricing-note" data-fi="Hinnat elävät sesongin mukaan — kysy ajankohtainen tarjous yhteydenotossa." data-en="Prices vary by season — ask for a current quote when you contact us.">Hinnat elävät sesongin mukaan — kysy ajankohtainen tarjous yhteydenotossa.</p>
       </div>
