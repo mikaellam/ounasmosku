@@ -68,7 +68,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:3rem}
 .feature{padding:1.5rem;border:1px solid rgba(200,180,140,.08);transition:border-color .2s}
 .feature:hover{border-color:rgba(200,146,42,.3)}
-.feature-icon{font-size:1.6rem;margin-bottom:1rem}
+.feature-icon{display:flex;align-items:center;color:var(--amber);margin-bottom:1rem;opacity:.85}
 .feature-title{font-size:.9rem;font-weight:500;color:var(--cream);margin-bottom:.4rem}
 .feature-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
 
@@ -79,7 +79,7 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 .act-row:hover{padding-left:.5rem}
 .act-row-img{width:84px;height:84px;flex-shrink:0;border-radius:2px;overflow:hidden;background:var(--pine);position:relative}
 .act-row-img img{width:100%;height:100%;object-fit:cover;opacity:.75;filter:saturate(.75)}
-.act-row-icon{position:absolute;bottom:.4rem;right:.4rem;font-size:1rem;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+.act-row-icon{position:absolute;bottom:.4rem;right:.4rem;color:var(--amber-light);display:flex}
 .act-row-text{flex:1;min-width:0}
 .act-row-title{font-family:var(--serif);font-size:1.35rem;color:var(--cream);margin-bottom:.2rem}
 .act-row-desc{font-size:.85rem;color:rgba(240,232,213,.6);font-weight:300}
@@ -94,11 +94,26 @@ h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;col
 
 /* GALLERY */
 .gallery{background:var(--moss)}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem}
-.gallery-item{position:relative;overflow:hidden;background:var(--pine);aspect-ratio:4/3}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:300px 300px auto;
+  gap:2px;
+  margin-top:3rem
+}
+.gallery-item{position:relative;overflow:hidden;background:var(--pine)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .3s}
 .gallery-item:hover img{opacity:.9}
 .gallery-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(200,180,140,.2);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
+/* Featured: spans left column, both rows */
+.gallery-item:nth-child(1){grid-column:1;grid-row:1/3}
+/* Two stacked right */
+.gallery-item:nth-child(2){grid-column:2/4;grid-row:1}
+.gallery-item:nth-child(3){grid-column:2/4;grid-row:2}
+/* Bottom strip: 3 equal items across all columns */
+.gallery-item:nth-child(4){grid-column:1;grid-row:3;aspect-ratio:4/3}
+.gallery-item:nth-child(5){grid-column:2;grid-row:3;aspect-ratio:4/3}
+.gallery-item:nth-child(6){grid-column:3;grid-row:3;aspect-ratio:4/3}
 
 /* PRICING */
 .pricing{background:var(--pine)}
@@ -137,13 +152,13 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
 /* RESPONSIVE */
 @media(max-width:700px){
   .intro-grid{grid-template-columns:1fr;gap:2.5rem}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  .gallery-item:nth-child(1),.gallery-item:nth-child(2),.gallery-item:nth-child(3),.gallery-item:nth-child(4),.gallery-item:nth-child(5),.gallery-item:nth-child(6){grid-column:1;grid-row:auto;aspect-ratio:4/3}
   .pricing-grid{grid-template-columns:1fr;gap:1.5rem}
   .location-grid{grid-template-columns:1fr;gap:2rem}
   nav{padding:1rem 1.2rem}
 }
 @media(max-width:480px){
-  .gallery-grid{grid-template-columns:1fr 1fr}
   h1{font-size:3rem}
   .act-row-img{width:64px;height:64px}
   .act-row-title{font-size:1.15rem}
@@ -208,12 +223,12 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
     <p class="section-label" data-fi="Varustelu" data-en="Amenities">Varustelu</p>
     <h2 data-fi="Kaikki mitä tarvitset" data-en="Everything you need">Kaikki mitä tarvitset</h2>
     <div class="features-grid">
-      <div class="feature"><div class="feature-icon">🪵</div><div class="feature-title" data-fi="Hirsirunko, 1920-luku" data-en="Log structure, 1920s">Hirsirunko, 1920-luku</div><div class="feature-desc" data-fi="Aito vanha hirsi, tunnelmallinen sisätila" data-en="Authentic old log, atmospheric interior">Aito vanha hirsi, tunnelmallinen sisätila</div></div>
-      <div class="feature"><div class="feature-icon">🛏️</div><div class="feature-title" data-fi="3 makuuhuonetta" data-en="3 bedrooms">3 makuuhuonetta</div><div class="feature-desc" data-fi="6 nukkumapaikkaa, tilava tupakeittiö" data-en="6 sleeping places, spacious kitchen-living room">6 nukkumapaikkaa, tilava tupakeittiö</div></div>
-      <div class="feature"><div class="feature-icon">🧖</div><div class="feature-title" data-fi="Sauna & pesuhuone" data-en="Sauna & bathroom">Sauna & pesuhuone</div><div class="feature-desc" data-fi="Kylpyhuone, sisäsauna" data-en="Toilet, indoor sauna">Kylpyhuone, sisäsauna</div></div>
-      <div class="feature"><div class="feature-icon">🌡️</div><div class="feature-title" data-fi="Ilmalämpöpumppu" data-en="Heat pump">Ilmalämpöpumppu</div><div class="feature-desc" data-fi="Mukava ympäri vuoden" data-en="Comfortable year-round">Mukava ympäri vuoden</div></div>
-      <div class="feature"><div class="feature-icon">🔥</div><div class="feature-title" data-fi="Laavu pihassa" data-en="Lean-to shelter in the yard">Laavu pihassa</div><div class="feature-desc" data-fi="Grillaa sateelta suojassa, 3–4 hengelle myös yöpyminen Ounasjokea kuunnellen" data-en="Grill rain-free, or sleep 3–4 by the Ounasjoki river sounds">Grillaa sateelta suojassa, 3–4 hengelle myös yöpyminen Ounasjokea kuunnellen</div></div>
-      <div class="feature"><div class="feature-icon">🏔️</div><div class="feature-title" data-fi="Kansallispuisto lähellä" data-en="National park nearby">Kansallispuisto lähellä</div><div class="feature-desc" data-fi="Pallas-Yllästunturi käden ulottuvilla" data-en="Pallas-Yllästunturi within reach">Pallas-Yllästunturi käden ulottuvilla</div></div>
+      <div class="feature"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="14" width="20" height="5" rx="2.5"/><rect x="4" y="9" width="16" height="5" rx="2.5"/><line x1="7" y1="14" x2="7" y2="9"/><line x1="12" y1="14" x2="12" y2="9"/><line x1="17" y1="14" x2="17" y2="9"/></svg></div><div class="feature-title" data-fi="Hirsirunko, 1920-luku" data-en="Log structure, 1920s">Hirsirunko, 1920-luku</div><div class="feature-desc" data-fi="Aito vanha hirsi, tunnelmallinen sisätila" data-en="Authentic old log, atmospheric interior">Aito vanha hirsi, tunnelmallinen sisätila</div></div>
+      <div class="feature"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11v6"/><path d="M22 11v6"/><path d="M2 17h20"/><path d="M6 11h12a2 2 0 0 1 2 2v2H4v-2a2 2 0 0 1 2-2z"/></svg></div><div class="feature-title" data-fi="3 makuuhuonetta" data-en="3 bedrooms">3 makuuhuonetta</div><div class="feature-desc" data-fi="6 nukkumapaikkaa, tilava tupakeittiö" data-en="6 sleeping places, spacious kitchen-living room">6 nukkumapaikkaa, tilava tupakeittiö</div></div>
+      <div class="feature"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/><path d="M5 20h14"/><path d="M5 20v-6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v6"/><path d="M8 13v2"/><path d="M16 13v2"/></svg></div><div class="feature-title" data-fi="Sauna & pesuhuone" data-en="Sauna & bathroom">Sauna & pesuhuone</div><div class="feature-desc" data-fi="Kylpyhuone, sisäsauna" data-en="Toilet, indoor sauna">Kylpyhuone, sisäsauna</div></div>
+      <div class="feature"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><div class="feature-title" data-fi="Ilmalämpöpumppu" data-en="Heat pump">Ilmalämpöpumppu</div><div class="feature-desc" data-fi="Mukava ympäri vuoden" data-en="Comfortable year-round">Mukava ympäri vuoden</div></div>
+      <div class="feature"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div><div class="feature-title" data-fi="Laavu pihassa" data-en="Lean-to shelter in the yard">Laavu pihassa</div><div class="feature-desc" data-fi="Grillaa sateelta suojassa, 3–4 hengelle myös yöpyminen Ounasjokea kuunnellen" data-en="Grill rain-free, or sleep 3–4 by the Ounasjoki river sounds">Grillaa sateelta suojassa, 3–4 hengelle myös yöpyminen Ounasjokea kuunnellen</div></div>
+      <div class="feature"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg></div><div class="feature-title" data-fi="Kansallispuisto lähellä" data-en="National park nearby">Kansallispuisto lähellä</div><div class="feature-desc" data-fi="Pallas-Yllästunturi käden ulottuvilla" data-en="Pallas-Yllästunturi within reach">Pallas-Yllästunturi käden ulottuvilla</div></div>
     </div>
   </div>
 </section>
@@ -226,28 +241,28 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
   </div>
   <div class="act-list container">
     <div class="act-row">
-      <div class="act-row-img"><img src="img/fishing.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon">🎣</span></div>
+      <div class="act-row-img"><img src="img/fishing.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))"><path d="M18 16.5a4.5 4.5 0 0 1-4.5 4.5 6 6 0 0 1-6-6c0-4 4.5-10.5 4.5-10.5S4.5 11 4.5 15a6 6 0 0 1-1.5-4"/><path d="m9 11 3 3"/><path d="m6 14 3-3"/></svg></span></div>
       <div class="act-row-text">
         <div class="act-row-title" data-fi="Koskikalastus" data-en="Rapid fishing">Koskikalastus</div>
         <div class="act-row-desc" data-fi="Taimen, lohi, hauki ja ahven Ounasjoessa — 20 m ovelta" data-en="Trout, salmon, pike and perch in the Ounasjoki river — 20 m from the door">Taimen, lohi, hauki ja ahven Ounasjoessa — 20 m ovelta</div>
       </div>
     </div>
     <div class="act-row">
-      <div class="act-row-img"><img src="img/hunting.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon">🦌</span></div>
+      <div class="act-row-img"><img src="img/hunting.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg></span></div>
       <div class="act-row-text">
         <div class="act-row-title" data-fi="Metsästys" data-en="Hunting">Metsästys</div>
         <div class="act-row-desc" data-fi="Hirvi, karhu, linnut — ~1000 ha maat suoraan pihasta" data-en="Moose, bear, birds — ~1000 ha grounds right from the yard">Hirvi, karhu, linnut — ~1000 ha maat suoraan pihasta</div>
       </div>
     </div>
     <div class="act-row">
-      <div class="act-row-img"><img src="img/skiing.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon">⛷️</span></div>
+      <div class="act-row-img"><img src="img/skiing.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))"><circle cx="12" cy="4" r="1.5"/><path d="m20 20-7-5-2-6"/><path d="M4 20 9 9"/><path d="m15 9-3-5"/><path d="M7 11.5 5 20"/></svg></span></div>
       <div class="act-row-text">
         <div class="act-row-title" data-fi="Hiihto & Levi" data-en="Skiing & Levi">Hiihto & Levi</div>
         <div class="act-row-desc" data-fi="Levin hiihtokeskus 28 km" data-en="Levi ski resort 28 km away">Levin hiihtokeskus 28 km</div>
       </div>
     </div>
     <div class="act-row">
-      <div class="act-row-img"><img src="img/nature.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon">🌲</span></div>
+      <div class="act-row-img"><img src="img/nature.jpeg" alt="" onerror="this.closest('.act-row-img').style.display='none'"/><span class="act-row-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))"><path d="M12 2L4 14h4v6h8v-6h4L12 2z"/></svg></span></div>
       <div class="act-row-text">
         <div class="act-row-title" data-fi="Luonto & vaellus" data-en="Nature & hiking">Luonto & vaellus</div>
         <div class="act-row-desc" data-fi="Pallas-Yllästunturi kansallispuisto" data-en="Pallas-Yllästunturi national park">Pallas-Yllästunturi kansallispuisto</div>
@@ -259,7 +274,7 @@ footer{background:var(--dark);padding:2.5rem 2rem;text-align:center;border-top:1
       <div class="hunting-note">
         <div class="hunting-note-title" data-fi="Metsästysoikeus lisämaksusta" data-en="Hunting rights for an additional fee">Metsästysoikeus lisämaksusta</div>
         <div class="lang-block active" id="hunting-fi">
-          <p>Talon omistajan noin 1000 hehtaarin mailla pienriistan metsästys on mahdollista lisämaksusta, ja maille pääsee suoraan pihasta — tämä tekee kohteesta unelmapaikan myös metsästyksen harrastajille. Lisäksi paikallisen hirviseuran hirvenmetsästykseen on mahdollista osallistua omalla aseella. Pienriistan metsästysmaksu on noin 200 € yhteensä kaikilta metsästäjiltä per vuokrausjakso.</p>
+          <p>Talon omistajan noin 1000 hehtaarin mailla pienriistan metsästys on mahdollista lisämaksusta, ja maille pääsee suoraan pihasta — tämä tekee kohteesta unelmapaikan myös metsästyksen harrastajille. Lisäksi paikallisen hirviseuran hirvenmetsästykseen on mahdollista osallistua omalla aseella. Varaathan lisäpalvelun "Muut kulut" yhteydenotossa, mikäli haluat varata metsästysoikeuden. Pienriistan metsästysmaksu on noin 200 € yhteensä kaikilta metsästäjiltä per vuokrausjakso.</p>
         </div>
         <div class="lang-block" id="hunting-en">
           <p>Small-game hunting is available for an additional fee on the owner's roughly 1000-hectare grounds, with direct access right from the yard — making this a dream destination for hunting enthusiasts too. It's also possible to join the local moose hunting club's hunt with your own firearm. Please mention the hunting permit when you get in touch — the small-game hunting fee is approximately €200 total for all hunters per rental period.</p>
